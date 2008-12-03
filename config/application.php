@@ -9,7 +9,7 @@ define('WWW_JS_PATH', WWW_BASE_PATH . 'js/');
 define('WWW_IMAGE_PATH', WWW_BASE_PATH . 'images/');
 
 // Include and configure the LighVC framework
-include_once(APP_PATH . 'modules/lightvc.php');
+include_once(APP_PATH . 'modules/lightvc/lightvc.php');
 Lvc_Config::addControllerPath(APP_PATH . 'controllers/');
 Lvc_Config::addControllerViewPath(APP_PATH . 'views/');
 Lvc_Config::addLayoutViewPath(APP_PATH . 'views/layouts/');
