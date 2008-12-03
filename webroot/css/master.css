@@ -1,0 +1,48 @@
+body {
+	padding: 0 1em;
+	font-family: sans-serif;
+}
+h1 {
+	font-weight: bold;
+	font-size: 120%;
+	margin-bottom: 1em;
+}
+h2 {
+	font-weight: bold;
+	font-size: 110%;
+	margin: 1em 0;
+}
+p {
+	margin: 1em 0;
+}
+ul,
+ol {
+	margin-left: 1em;
+	padding-left: 2em;
+}
+a:visited {
+	color: #800000;
+}
+.path {
+	font-weight: bold;
+}
+.note {
+	color: #ccc;
+	font-size: 90%;
+}
+#header,
+#footer {
+	background: #800000;
+	border: 5px solid #420D07;
+	color: #fff;
+	letter-spacing: 2px;
+	margin: 1em auto;
+	padding: 1em;
+	text-align: center;
+	width: 700px;
+}
+#content {
+	margin: 1em auto;
+	padding: 1em;
+	width: 700px;
+}
