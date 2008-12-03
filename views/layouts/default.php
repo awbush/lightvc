@@ -13,9 +13,9 @@
 		}
 	}
 	
-	if (isset($requiredJs)) {
-		foreach ($requiredJs as $js => $use) {
-			echo '<script type="text/javascript" language="javascript" charset="utf-8" src="' . WWW_JS_PATH . $js . '"></script>' . "\n";
+	if (isset($requiredJsInHead)) {
+		foreach ($requiredJsInHead as $js => $use) {
+			echo '<script type="text/javascript" charset="utf-8" src="' . WWW_JS_PATH . $js . '"></script>' . "\n";
 		}
 	}
 	
@@ -32,9 +32,13 @@
 		<?php echo $layoutContent ?>
 	</div>
 
-	<div id="footer">
-		Have fun!
-	</div>
+	<?php
+	if (isset($requiredJs)) {
+		foreach ($requiredJs as $js => $use) {
+			echo '<script type="text/javascript" charset="utf-8" src="' . WWW_JS_PATH . $js . '"></script>' . "\n";
+		}
+	}
+	?>
 	
 </body>
 </html>

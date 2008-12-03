@@ -7,6 +7,8 @@ define('WWW_BASE_PATH', str_replace('index.php', '', $_SERVER['SCRIPT_NAME']));
 define('WWW_CSS_PATH', WWW_BASE_PATH . 'css/');
 define('WWW_JS_PATH', WWW_BASE_PATH . 'js/');
 define('WWW_IMAGE_PATH', WWW_BASE_PATH . 'images/');
+// set_include_path(get_include_path() . PATH_SEPARATOR . APP_PATH . PATH_SEPARATOR . SHARED_PATH);
+// set_include_path(get_include_path() . PATH_SEPARATOR . APP_PATH);
 
 // Include and configure the LighVC framework
 include_once(APP_PATH . 'modules/lightvc/lightvc.php');
