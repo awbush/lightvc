@@ -281,13 +281,13 @@ class Lvc_Request {
 	}
 
 	public function setControllerName($controllerName) {
-		$this->controllerName = $controllerName;
+		$this->controllerName = trim($controllerName);
 	}
 	public function setControllerParams(&$controllerParams) {
 		$this->controllerParams = $controllerParams;
 	}
 	public function setActionName($actionName) {
-		$this->actionName = $actionName;
+		$this->actionName = trim($actionName);
 	}
 	public function setActionParams($actionParams) {
 		$this->actionParams = $actionParams;
@@ -337,7 +337,7 @@ class Lvc_HttpRequest extends Lvc_Request {
 		// Save POST data
 		$params['post'] =& $_POST;
 		
-		// Save FILE data (consilidate it with _POST data)
+		// Save FILE data (consolidate it with _POST data)
 		foreach ($_FILES as $name => $data) {
 			if ($name != 'data') {
 				$params['post'][$name] = $data;
