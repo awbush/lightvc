@@ -14,6 +14,8 @@ $this->setLayoutVar('pageTitle', 'LightVC Skeleton App');
 	<li>"/controller/action/params" actives the "controller" controller's "action" action with the remaining URL used to populate the action method's arguments.</li>
 </ul>
 
+<p>If you need to, consult LightVC documentation on <a href="http://lightvc.org/docs/user_guide/configuration/web_server/">configuring your web server</a>, such as how to setup lighttpd rewrite rules.</p>
+
 <h2>Your action items:</h2>
 
 <ul>
@@ -30,3 +32,5 @@ $this->setLayoutVar('pageTitle', 'LightVC Skeleton App');
 	<li>Add to your route config in <span class="path">config/routes.php</span>.</li>
 	<li>Add your own model/ORM (e.g. <a href="http://coughphp.com">CoughPHP</a>, <a href="http://propel.phpdb.org/trac/">Propel</a>, <a href="http://en.wikipedia.org/wiki/List_of_object-relational_mapping_software#PHP">etc.</a>).</li>
 </ul>
+
+<p>Have Fun!<br /><a href="http://lightvc.org/">LightVC Website</a></p>
