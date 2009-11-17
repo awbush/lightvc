@@ -175,7 +175,7 @@ class Lvc_Config {
 	}
 	
 	public static function getControllerClassName($controllerName) {
-		return str_replace(' ', '', ucwords(str_replace('_', ' ', $controllerName))) . 'Controller';
+		return str_replace(' ', '', ucwords(str_replace(array('_', '/'), ' ', $controllerName))) . 'Controller';
 	}
 	
 	public static function getActionFunctionName($actionName) {
@@ -702,6 +702,21 @@ class Lvc_RegexRewriteRouter implements Lvc_RouterInterface {
 					// Check for redirect action first
 					if (isset($parsingInfo['redirect'])) {
 						$redirectUrl = preg_replace($regex, $parsingInfo['redirect'], $url);
+						// Output any custom headers, e.g. "HTTP/1.1 301 Moved Permanently"
+						if (isset($parsingInfo['headers']))
+						{
+							if (is_array($parsingInfo['headers']))
+							{
+								foreach ($parsingInfo['headers'] as $header)
+								{
+									header($header);
+								}
+							}
+							else
+							{
+								header($parsingInfo['headers']);
+							}
+						}
 						header('Location: ' . $redirectUrl);
 						exit();
 					}
