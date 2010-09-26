@@ -20,6 +20,7 @@ include(APP_PATH . 'classes/AppController.class.php');
 include(APP_PATH . 'classes/AppView.class.php');
 include(dirname(__FILE__) . '/routes.php');
 
+/* Enable the optional Autoloader and/or SimpleReflector helpers by uncommenting the following:
 // Setup Autoloader (http://anthonybush.com/projects/autoloader/)
 include(APP_PATH . 'classes/Autoloader.class.php');
 Autoloader::setCacheFilePath(APP_PATH . 'tmp/class_path_cache.txt');
@@ -33,5 +34,6 @@ spl_autoload_register(array('Autoloader', 'loadClass'));
 // Setup SimpleReflector alias (http://anthonybush.com/projects/simplereflector/)
 // call this to debug a variable/object, e.g. jam($var);
 function jam() { call_user_func_array(array('SimpleReflector', 'jam'), func_get_args()); }
+//*/
 
 ?>
