@@ -1237,6 +1237,8 @@ class Lvc_PageController {
 	 **/
 	protected function redirect($url) {
 		header('Location: ' . $url);
+		$this->afterAction();
+		exit();
 	}
 	
 	/**
