@@ -29,7 +29,7 @@
  * LightVC aims to be easier to use, more configurable, and light in footprint.
  * 
  * @author Anthony Bush
- * @version 1.0.4 (2008-03-15)
+ * @version 1.0.4 (2008-03-15) [modified 2011-09-19 to use REQUEST_URI]
  * @package lightvc
  * @see http://lightvc.org/
  **/
@@ -329,30 +329,15 @@ class Lvc_HttpRequest extends Lvc_Request {
 			$params['get'] = array();
 		}
 		
-		// Ensure that we have some mode_rewritten url.
-		if (!isset($params['get']['url'])) {
-			$params['get']['url'] = '';
+		// Ensure that we have a REQUEST_URI.
+		if (isset($_SERVER['REQUEST_URI'])) {
+			$params['uri'] = ltrim($_SERVER['REQUEST_URI'], '/');
+		} else {
+			$params['uri'] = '';
 		}
 		
 		// Save POST data
 		$params['post'] =& $_POST;
-		
-		// Save FILE data (consolidate it with _POST data)
-		foreach ($_FILES as $name => $data) {
-			if ($name != 'data') {
-				$params['post'][$name] = $data;
-			} else {
-				// Convert _FILE[data][key][model][field] -> [data][model][field][key]
-				// so that it matches up with _POST "data"
-				foreach ($data as $key => $modelData) {
-					foreach ($modelData as $model => $fields) {
-						foreach ($fields as $field => $value) {
-							$params['post']['data'][$model][$field][$key] = $value;
-						}
-					}
-				}
-			}
-		}
 		
 		// Set params that will be used by routers.
 		$this->setParams($params);
@@ -535,8 +520,8 @@ class Lvc_GetRouter implements Lvc_RouterInterface {
 }
 
 /**
- * Attempts to route a request using the GET value for the 'url' key, which
- * should be set by the mod_rewrite rules. Any additional "directories" are
+ * Attempts to route a request using the value for the 'uri' param, which
+ * should be set by the web server. Any additional "directories" are
  * used as parameters for the action (using numeric indexes). Any extra GET
  * data is also amended to the action parameters.
  * 
@@ -549,8 +534,8 @@ class Lvc_GetRouter implements Lvc_RouterInterface {
  **/
 class Lvc_RewriteRouter implements Lvc_RouterInterface {
 	/**
-	 * Attempts to route a request using the GET value for the 'url' key, which
-	 * should be set by the mod_rewrite rules. Any additional "directories" are
+	 * Attempts to route a request using the value for the 'uri' param, which
+	 * should be set by the web server. Any additional "directories" are
 	 * used as parameters for the action (using numeric indexes). Any extra GET
 	 * data is also amended to the action parameters.
 	 * 
@@ -562,10 +547,9 @@ class Lvc_RewriteRouter implements Lvc_RouterInterface {
 	public function route($request) {
 		$params = $request->getParams();
 		
-		if (isset($params['get']['url'])) {
+		if (isset($params['uri'])) {
 			
-			// Use mod_rewrite's url
-			$url = explode('/', $params['get']['url']);
+			$url = explode('/', $params['uri']);
 			$count = count($url);
 			
 			// Set controller, action, and some action params from the segmented URL.
@@ -593,7 +577,7 @@ class Lvc_RewriteRouter implements Lvc_RouterInterface {
 }
 
 /**
- * Routes a request using mod_rewrite data and regular expressions specified by
+ * Routes a request using REQUEST_URI data and regular expressions specified by
  * the LightVC user.
  * 
  * Specify routes using {@link addRoute()}.
@@ -640,7 +624,7 @@ class Lvc_RegexRewriteRouter implements Lvc_RouterInterface {
 	 * That is, if you don't specify the controller name or action name, then
 	 * the defaults will be used by the Lvc_FrontController.
 	 * 
-	 * @param $regex regular expression to match the rewritten part with.
+	 * @param $regex regular expression to match the REQUEST_URI with.
 	 * @param $parsingInfo an array containing any custom routing info.
 	 * @return void
 	 * @author Anthony Bush
@@ -690,10 +674,9 @@ class Lvc_RegexRewriteRouter implements Lvc_RouterInterface {
 	public function route($request) {
 		$params = $request->getParams();
 		
-		if (isset($params['get']['url'])) {
+		if (isset($params['uri'])) {
 			
-			// Use mod_rewrite's url
-			$url = $params['get']['url'];
+			$url = $params['uri'];
 			
 			$matches = array();
 			foreach ($this->routes as $regex => $parsingInfo) {
@@ -774,7 +757,7 @@ class Lvc_RegexRewriteRouter implements Lvc_RouterInterface {
 					return true;
 				} // route matched
 			} // loop through routes
-		} // url _GET value set
+		} // uri value set
 		return false;
 	}
 }
@@ -1228,8 +1211,7 @@ class Lvc_PageController {
 	}
 	
 	/**
-	 * Redirect to the specified url. NOTE that this function does not stop
-	 * execution.
+	 * Redirect to the specified url. NOTE that this function stops execution.
 	 * 
 	 * @param string $url URL to redirect to.
 	 * @return void
