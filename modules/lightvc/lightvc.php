@@ -331,7 +331,7 @@ class Lvc_HttpRequest extends Lvc_Request {
 		
 		// Ensure that we have a REQUEST_URI.
 		if (isset($_SERVER['REQUEST_URI'])) {
-			$params['uri'] = ltrim($_SERVER['REQUEST_URI'], '/');
+			$params['uri'] = ltrim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), '/');
 		} else {
 			$params['uri'] = '';
 		}
