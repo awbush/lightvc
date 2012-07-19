@@ -83,6 +83,16 @@ Dynamic Example:
 
 Basically, the value of the redirect option is used as the replacement variable for PHP's [preg_replace](http://www.php.net/manual/en/function.preg-replace.php) function.  That is how the dynamic example works.
 
+As of version 2.0.0 and up, you can set custom headers when redirecting (as either a string or an array of strings):
+
+	'#^test/?$#' => array(
+		'redirect' => '/some/other/page/'
+		'headers' => 'HTTP/1.1 301 Moved Permanently'
+	),
+	'#^test2/?$#' => array(
+		'redirect' => 'http://lightvc.org/'
+		'headers' => array('HTTP/1.1 301 Moved Permanently')
+	),
 
 The above examples should be enough to explain how to add routes for the `Lvc_RegexRewriteRouter`, but to be clear:
 
@@ -93,5 +103,6 @@ The above examples should be enough to explain how to add routes for the `Lvc_Re
 	* Parameter names do not have to be included;  They are only useful if `Lvc_Config::setSendActionParamsAsArray(true);` is used.
 * `additional_params` should be an integer specifying which regex match to use for parsing additional parameters out of the URL.
 * Instead of any of the above, `redirect` can be specified to have the browser redirected to another page.
+	* When `redirect` is used, you can set custom `headers`.
 
 Those unfamiliar with regex might want to look at the [pattern syntax](http://php.net/manual/en/reference.pcre.pattern.syntax.php).

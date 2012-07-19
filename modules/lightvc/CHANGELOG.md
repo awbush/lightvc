@@ -1,6 +1,29 @@
 Changelog
 =========
 
+2.0.0 (unreleased)
+------------------
+
+CAUTION: there are backwards incompatible changes in this release, hence the major version number bump.  From here on, LightVC will attempt to follow the [Semantic Versioning](http://semver.org/) spec.
+
+Changes follow:
+
+* Added ability to use custom redirect headers when using "redirect" routes.
+
+* Changed PageController::redirect() to explicitly invoke `afterAction()` and `exit()`.
+
+* Fixed LightVC errors caused by visiting urls like '/%00'.
+
+* Moved lightvc core files into its own modules sub-folder.
+
+* Several small non-core changes:
+	* Moved reset.css into single line at top of master.css (performance).
+	* Split out HTTP error codes from the error controller.
+	* Added simple AppController methods: requireJsInHead, redirectToAction, etc.
+	* Added requireJs and requireJsInHead to AppView.  Thus, views can now specify their JS dependencies in addition to their CSS ones.
+	* Added Autoloader and SimpleReflector classes: uncomment sections in config/application.php to enable them.
+
+
 1.0.4 (2008-03-15)
 ------------------
 
