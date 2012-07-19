@@ -1,6 +1,31 @@
 Web Server Configuration Examples
 =================================
 
+Nginx Example
+-------------
+
+Nginx with php-fpm could work with a vhost like this:
+
+	server {
+		root /path/to/lightvc-app/webroot;
+		server_name local.domain.com;
+		sendfile off;
+
+		try_files $uri /index.php?$args;
+
+		location ~ \.php$ {
+			fastcgi_pass 127.0.0.1:9000;
+			fastcgi_index index.php;
+			include fastcgi_params;
+		}
+	}
+
+Those contents could be in `/etc/nginx/sites-available/lightvc-app.conf` with a symlink in `/etc/nginx/sites-enabled/` pointing to it.  Depends on your setup.
+
+### References ###
+
+* [Nginx try_files documentation](http://wiki.nginx.org/NginxHttpCoreModule#try_files)
+
 Apache (1 & 2) Example
 ----------------------
 
