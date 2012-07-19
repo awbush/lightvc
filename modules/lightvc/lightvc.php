@@ -860,20 +860,10 @@ class Lvc_PageController {
 	 * Params is typically a combination of:
 	 *     _GET (stored in params['get'])
 	 *     _POST (stored in params['post'])
-	 *     _FILE (also stored in params['post'])
 	 *
 	 * @var array
 	 **/
 	protected $params = array();
-	
-	/**
-	 * A reference to $params['post']['data'], typically a combination of:
-	 *     _POST['data'] (usually holds [Model][field])
-	 *     _FILE['data'] (usually holds [key][Model][field], but the request object should remap it to [Model][field][key])
-	 *
-	 * @var array
-	 **/
-	protected $postData = array();
 	
 	/**
 	 * Reference to post data (i.e. $this->params['post'])
@@ -970,9 +960,6 @@ class Lvc_PageController {
 	public function setControllerParams(&$params) {
 		$this->params = $params;
 		// Make a reference to the form data so we can get to it easier.
-		if (isset($this->params['post']['data'])) {
-			$this->postData =& $this->params['post']['data'];
-		}
 		if (isset($this->params['post'])) {
 			$this->post =& $this->params['post'];
 		}
