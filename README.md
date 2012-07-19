@@ -12,7 +12,7 @@ LightVC has been in production use (millions of hits a month) since early 2007, 
 Some project goals:
 
 - Promote code re-use: allow usage of any model or ORM, session classes, helpers, etc.
-- Be highly [configurable](modules/lightvc/docs/user_guide/configuration.md).
+- Be highly [configurable](blob/master/modules/lightvc/docs/user_guide/configuration.md).
 	- Don't like were things are supposed to be stored?  Change it.
 	- Need a custom router that hits a DB for mapping legacy URLs?  Provide one.
 	- Need multiple routers in a [chain-of-responsibility pattern](http://en.wikipedia.org/wiki/Chain-of-responsibility_pattern)?  No problem.
@@ -27,14 +27,14 @@ Installation
 1. Download and extract one of the [tagged releases](https://github.com/awbush/lightvc/tags).
 2. Point a webserver to the "webroot" folder.
 
-Read more about this in the [Quickstart Guide](modules/lightvc/docs/quickstart_guide.md).
+Read more about this in the [Quickstart Guide](blob/master/modules/lightvc/docs/quickstart_guide.md).
 
 
 Support
 -------
 
-- [Read documentation](modules/lightvc/docs/index.md) or dive right into the example controllers, views, and application config in the download.
-- [View the changelog](modules/lightvc/CHANGELOG.md).
+- [Read documentation](blob/master/modules/lightvc/docs/index.md) or dive right into the example controllers, views, and application config in the download.
+- [View the changelog](blob/master/modules/lightvc/CHANGELOG.md).
 - [Report issues](https://github.com/awbush/lightvc/issues) on github.
 - [Use pull requests](https://help.github.com/articles/using-pull-requests/) to contribute code.
 - The deprecated launchpad site can still be found [here](https://launchpad.net/lightvc).
