@@ -8,7 +8,9 @@ CAUTION: there are backwards incompatible changes in this release, hence the maj
 
 Changes follow:
 
-* Added ability to use custom redirect headers when using "redirect" routes.
+* Added ability to use custom sub paths for controllers and views in routing config.  See [route documentation](docs/user_guide/configuration/routes.md) for its usage.
+
+* Added ability to use custom redirect headers when using "redirect" routes.  See [route documentation](docs/user_guide/configuration/routes.md) for its usage.
 
 * Changed PageController::redirect() to explicitly invoke `afterAction()` and `exit()`.
 
