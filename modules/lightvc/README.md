@@ -25,7 +25,7 @@ Installation
 ------------
 
 1. Download and extract one of the [tagged releases](https://github.com/awbush/lightvc/tags).
-2. Point a webserver to the "webroot" folder.
+2. Point a web server to the "webroot" folder.
 
 Read more about this in the [Quickstart Guide](docs/quickstart_guide.md).
 
