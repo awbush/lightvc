@@ -1,7 +1,7 @@
 Changelog
 =========
 
-2.0.0 (unreleased)
+2.0.0 (2012-08-14)
 ------------------
 
 CAUTION: there are backwards incompatible changes in this release, hence the major version number bump.  From here on, LightVC will attempt to follow the [Semantic Versioning](http://semver.org/) spec.
