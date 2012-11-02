@@ -1,6 +1,12 @@
 Changelog
 =========
 
+2.0.1 (2012-11-02)
+------------------
+
+* When using `Lvc_Config::setSendActionParamsAsArray(true)`, pull error code from correct place.
+
+
 2.0.0 (2012-08-14)
 ------------------
 

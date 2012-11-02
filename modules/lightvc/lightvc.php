@@ -29,7 +29,6 @@
  * LightVC aims to be easier to use, more configurable, and light in footprint.
  * 
  * @author Anthony Bush
- * @version 1.0.4 (2008-03-15) [modified 2011-09-19 to use REQUEST_URI]
  * @package lightvc
  * @see http://lightvc.org/
  **/
