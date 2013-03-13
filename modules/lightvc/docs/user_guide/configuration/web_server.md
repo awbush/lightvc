@@ -52,13 +52,11 @@ If you prefer to setup port-based virtual hosts (e.g. on a development machine),
 
 **CAUTION**: The best practice is not to have any .htaccess usage at all.  It's provided as a convenience, but if you have full control over the apache conf files you should copy the contents into the `<Directory>` section.  See [when (not) to use .htaccess files](http://httpd.apache.org/docs/2.2/howto/htaccess.html#when).  For example, replace `AllowOverride All` in either of the above examples with:
 	
-	<IfModule mod_rewrite.c>
-	    RewriteEngine On
-	    RewriteCond %{REQUEST_FILENAME} !-d
-	    RewriteCond %{REQUEST_FILENAME} !-f
-	    RewriteCond %{REQUEST_METHOD} !OPTIONS
-	    RewriteRule ^(.*)$ index.php [L]
-	</IfModule>
+    RewriteEngine On
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_METHOD} !OPTIONS
+    RewriteRule ^(.*)$ index.php [L]
 
 ### References ###
 
