@@ -176,11 +176,13 @@ class Lvc_Config {
 	}
 	
 	public static function getControllerClassName($controllerName) {
-		return str_replace(' ', '', ucwords(str_replace(array('_', '/'), ' ', $controllerName))) . 'Controller';
+		$className = str_replace('-', '', $controllerName);
+		return str_replace(' ', '', ucwords(str_replace(array('_', '/'), ' ', $className))) . 'Controller';
 	}
 	
 	public static function getActionFunctionName($actionName) {
-		return 'action' . str_replace(' ', '', ucwords(str_replace('_', ' ', $actionName)));
+		$functionName = str_replace('-', '', $actionName);
+		return 'action' . str_replace(' ', '', ucwords(str_replace('_', ' ', $functionName)));
 	}
 	
 	public static function getControllerView($viewName, &$data = array()) {
@@ -286,16 +288,16 @@ class Lvc_Request {
 	}
 
 	public function setControllerName($controllerName) {
-		$this->controllerName = trim($controllerName);
+		$this->controllerName = str_replace('-','',trim($controllerName));
 	}
 	public function setControllerSubPath($controllerSubPath) {
-		$this->controllerSubPath = trim($controllerSubPath);
+		$this->controllerSubPath = str_replace('-','',trim($controllerSubPath));
 	}
 	public function setControllerParams(&$controllerParams) {
 		$this->controllerParams = $controllerParams;
 	}
 	public function setActionName($actionName) {
-		$this->actionName = trim($actionName);
+		$this->actionName = str_replace('-','',trim($actionName));
 	}
 	public function setActionParams($actionParams) {
 		$this->actionParams = $actionParams;
