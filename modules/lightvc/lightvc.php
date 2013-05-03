@@ -180,8 +180,7 @@ class Lvc_Config {
 	}
 	
 	public static function getActionFunctionName($actionName) {
-		$functionName = str_replace('-', '', $actionName);
-		return 'action' . str_replace(' ', '', ucwords(str_replace('_', ' ', $functionName)));
+		return 'action' . str_replace(' ', '', ucwords(str_replace(array('_','-'), ' ', $actionName)));
 	}
 	
 	public static function getControllerView($viewName, &$data = array()) {
