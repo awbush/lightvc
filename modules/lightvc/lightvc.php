@@ -176,8 +176,7 @@ class Lvc_Config {
 	}
 	
 	public static function getControllerClassName($controllerName) {
-		$className = str_replace('-', '', $controllerName);
-		return str_replace(' ', '', ucwords(str_replace(array('_', '/'), ' ', $className))) . 'Controller';
+		return str_replace(' ', '', ucwords(str_replace(array('_', '/', '-'), ' ', $controllerName))) . 'Controller';
 	}
 	
 	public static function getActionFunctionName($actionName) {
@@ -288,16 +287,16 @@ class Lvc_Request {
 	}
 
 	public function setControllerName($controllerName) {
-		$this->controllerName = str_replace('-','',trim($controllerName));
+		$this->controllerName = trim($controllerName);
 	}
 	public function setControllerSubPath($controllerSubPath) {
-		$this->controllerSubPath = str_replace('-','',trim($controllerSubPath));
+		$this->controllerSubPath = trim($controllerSubPath);
 	}
 	public function setControllerParams(&$controllerParams) {
 		$this->controllerParams = $controllerParams;
 	}
 	public function setActionName($actionName) {
-		$this->actionName = str_replace('-','',trim($actionName));
+		$this->actionName = trim($actionName);
 	}
 	public function setActionParams($actionParams) {
 		$this->actionParams = $actionParams;
