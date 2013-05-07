@@ -1,6 +1,12 @@
 Changelog
 =========
 
+2.0.2 (2013-05-06)
+------------------
+
+* Add support for URLs with dashes ([tjans](https://github.com/tjans))
+
+
 2.0.1 (2012-11-02)
 ------------------
 
