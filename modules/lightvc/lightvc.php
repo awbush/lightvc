@@ -176,11 +176,11 @@ class Lvc_Config {
 	}
 	
 	public static function getControllerClassName($controllerName) {
-		return str_replace(' ', '', ucwords(str_replace(array('_', '/'), ' ', $controllerName))) . 'Controller';
+		return str_replace(' ', '', ucwords(str_replace(array('_', '/', '-'), ' ', $controllerName))) . 'Controller';
 	}
 	
 	public static function getActionFunctionName($actionName) {
-		return 'action' . str_replace(' ', '', ucwords(str_replace('_', ' ', $actionName)));
+		return 'action' . str_replace(' ', '', ucwords(str_replace(array('_', '-'), ' ', $actionName)));
 	}
 	
 	public static function getControllerView($viewName, &$data = array()) {
