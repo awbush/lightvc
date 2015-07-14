@@ -1,0 +1,131 @@
+/* reset.css */
+body{color:#000;background:#FFF;}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0;}table{border-collapse:collapse;border-spacing:0;}fieldset,img{border:0;}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}caption,th{text-align:left;}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}q:before,q:after{content:'';}abbr,acronym{border:0;font-variant:normal;}sup,sub{line-height:-1px;vertical-align:text-top;}sub{vertical-align:text-bottom;}input, textarea, select{font-family:inherit;font-size:inherit;font-weight:inherit;}
+body {font:13px/1.22 arial,helvetica,clean,sans-serif;*font-size:small;*font:x-small;}table {font-size:inherit;font:100%;}pre,code,kbd,samp,tt{font-family:monospace;*font-size:108%;line-height:99%;}
+/* main.css */
+body {
+	background: #ccc;
+	font-family: sans-serif;
+	padding: 0;
+}
+.clear {
+	clear: both;
+}
+#wrap {
+	width: 752px;
+	margin: 1em auto;
+}
+#header {
+	border: 1px solid #420D07;
+/*
+	background: #800000 url('../images/lightvc_banner.jpg') no-repeat scroll top left;
+	height: 120px;
+	width: 750px;
+*/
+}
+#main_nav {
+	background: #420D07;
+}
+#main_nav ul {
+	list-style: none;
+}
+#main_nav li {
+	float: left;
+	padding: 0 1em;
+}
+#main_nav a:link,
+#main_nav a:visited {
+	display: block;
+	padding: .5em 1em;
+	color: #fff;
+	text-decoration: none;
+}
+#main_nav a:hover,
+#main_nav a:active {
+	background: #BC2312;
+}
+#content {
+	background: #fff;
+	border: 1px solid #420D07;
+	padding: 1em;
+}
+#content h1 {
+	font-weight: bold;
+	font-size: 120%;
+	margin-bottom: 1em;
+}
+#content h2 {
+	font-weight: bold;
+	font-size: 110%;
+	margin: 1em 0;
+}
+#content h3 {
+	font-weight: bold;
+	margin: 1em 0;
+}
+#content p {
+	margin: 1em 0;
+}
+#content ul,
+#content ol {
+	margin-left: 1em;
+	padding-left: 2em;
+}
+#content img {
+	display: block;
+	border: 0;
+}
+#content a {
+	text-decoration: underline;
+}
+#content a:link,
+#content a:visited,
+#content a:hover,
+#content a:active {
+	color: #990000;
+}
+#content a:hover,
+#content a:active {
+	background: #BC2312;
+	color: #fff;
+}
+#content pre {
+	background-color: #eee;
+	border: 1px solid #ddd;
+	padding: 0.5em;
+	overflow: auto;
+	margin-left: 2em;
+}
+#content code {
+	font-family: Courier;
+	font-size: 85%;
+	color: #0000BB;
+}
+#content .path {
+	font-weight: bold;
+}
+#content .note {
+	color: #999;
+	font-size: 90%;
+}
+#content .download {
+	text-align: center;
+}
+#content .download img {
+	margin: 0 auto;
+}
+#footer {
+	color: #777;
+	font-size: 80%;
+	padding: 1em;
+	text-align: center;
+}
+
+.coughphp_callout {
+	background: #EDDADA;
+	border: 1px solid #990000;
+	float: right;
+	margin: 0 0 1em 1em;
+	padding: 1em;
+	text-align: right;
+	line-height: 1.5em;
+}

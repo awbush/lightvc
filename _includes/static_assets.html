@@ -1,0 +1,19 @@
+{% for partial_fn in css %}
+	{% capture fn %}/css/{{ partial_fn }}.css{% endcapture %}
+	{% for f in site.static_files %}
+		{% if f.path == fn %}
+			<link rel="stylesheet" href="{{ site.baseurl }}{{ f.path }}?m={{ f.modified_time }}" type="text/css" media="all" charset="utf-8">
+			{% break %}
+		{% endif %}
+	{% endfor %}
+{% endfor %}
+
+{% for partial_fn in js %}
+	{% capture fn %}/js/{{ partial_fn }}.js{% endcapture %}
+	{% for f in site.static_files %}
+		{% if f.path == fn %}
+			<script type="text/javascript" language="javascript" charset="utf-8" src="{{ site.baseurl }}{{ f.path }}?m={{ f.modified_time }}"></script>
+			{% break %}
+		{% endif %}
+	{% endfor %}
+{% endfor %}

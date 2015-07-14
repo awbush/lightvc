@@ -1,0 +1,15 @@
+highlighter: pygments
+google_analytics_id: UA-5966258-1
+baseurl: ''
+defaults:
+  - scope:
+      type: "pages"
+    values:
+      layout: "default"
+
+exclude:
+  - CNAME
+  - Gemfile
+  - Gemfile.lock
+  - Rakefile
+  - readme.md
