@@ -17,6 +17,7 @@ class ErrorController extends AppController
 		}
 		include_once('../classes/HttpStatusCode.class.php');
 		$statusCode = new HttpStatusCode($errorNum);
+		$this->sendHttpStatusHeader($errorNum);
 		$this->setLayoutVar('pageTitle', $statusCode->getDefinition());
 		$this->loadView($this->getControllerName() . '/' . $statusCode->getCode());
 	}
