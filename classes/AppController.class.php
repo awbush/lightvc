@@ -35,7 +35,11 @@ class AppController extends Lvc_PageController
 	{
 		include_once('HttpStatusCode.class.php');
 		$statusCode = new HttpStatusCode($code);
-		header('HTTP/1.1 ' . $statusCode->getCode() . ' ' . $statusCode->getDefinition());
+
+		// Ensure the server protocol is supplied. Otherwise we fallback to stubbed string "HTTP/1.1".
+		$serverProtocol = (isset($_SERVER["SERVER_PROTOCOL"])) ? $_SERVER["SERVER_PROTOCOL"] : 'HTTP/1.1';
+		header($serverProtocol . ' ' . $statusCode->getCode() . ' ' . $statusCode->getDefinition());
+		
 		return $statusCode;
 	}
 	
